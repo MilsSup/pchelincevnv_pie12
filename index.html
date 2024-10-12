@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Простой сайт на JS</title>
+    <title>Интерактивный сайт на JS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,14 +12,32 @@
         button {
             padding: 10px 20px;
             font-size: 16px;
+            margin-top: 10px;
+        }
+        #changeColorBtn {
+            margin-left: 10px;
+            background-color: lightblue;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
     <h1>Добро пожаловать на мой сайт!</h1>
-    <p id="greeting">Привет, пользователь!</p>
-    <button id="changeTextBtn">Нажми меня</button>
+    
+    <!-- Форма для ввода имени -->
+    <label for="nameInput">Введите ваше имя:</label>
+    <input type="text" id="nameInput" placeholder="Ваше имя">
+    <button id="greetBtn">Приветствовать</button>
+    
+    <p id="personalGreeting">Привет, гость!</p>
+
+    <!-- Кнопка для смены цвета фона -->
+    <button id="changeColorBtn">Сменить цвет фона</button>
 
     <script src="app.js"></script>
 </body>
