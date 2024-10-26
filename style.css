@@ -1,57 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: white;
-    transition: background-color 0.3s ease;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
 }
 
-h1 {
-    color: #333;
+.index {
+    position: absolute;
+    height: 15vh; /* Используем vh для адаптации высоты капель */
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: #fff;
+    animation: animate 5s linear infinite;
 }
 
-label {
-    font-size: 18px;
+.index:nth-child(4n+1) {
+    background: linear-gradient(transparent, #00f);
 }
 
-input {
-    padding: 10px;
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    display: block;
-    width: 100%;
-    max-width: 300px;
+.index:nth-child(4n+2) {
+    background: linear-gradient(transparent, #0f0);
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
+.index:nth-child(4n+3) {
+    background: linear-gradient(transparent, #f00);
 }
 
-#changeColorBtn {
-    margin-left: 10px;
-    background-color: lightblue;
-    border: none;
-    transition: background-color 0.3s ease;
+.index:nth-child(4n+4) {
+    background: linear-gradient(transparent, #ff0);
 }
 
-#changeColorBtn:hover {
-    background-color: deepskyblue;
+@keyframes animate {
+    0% {
+        transform: translateY(-15vh); /* Начало анимации выше экрана */
+    }
+    100% {
+        transform: translateY(calc(100vh + 15vh)); /* Конец анимации за границами экрана */
+    }
 }
 
-#greetBtn {
-    background-color: lightgreen;
-    border: none;
-    transition: background-color 0.3s ease;
-}
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .index {
+        height: 10vh; /* Меньше высота капель на мобильных */
+        animation-duration: 6s; /* Немного быстрее анимация на мобильных */
+    }
 
-#greetBtn:hover {
-    background-color: limegreen;
-}
-
-#personalGreeting {
-    font-size: 20px;
-    color: #555;
+    @keyframes animate {
+        0% {
+            transform: translateY(-10vh); /* Начало анимации выше экрана */
+        }
+        100% {
+            transform: translateY(calc(100vh + 10vh)); /* Конец анимации за границами экрана */
+        }
+    }
 }
